@@ -16,6 +16,7 @@ pipeline {
                                     agent { label 'master' }
                                     steps
                                     {
+                                            echo 'Building Docker Image'
                                             dockerfile 
                                             {
                                                         dir '.'
