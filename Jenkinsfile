@@ -13,10 +13,12 @@ pipeline {
                         }
                         stage ('build')
                         {
+                                    checkout scm
                                     agent { label 'master' }
                                     steps
                                     {
-                                                sh 'docker build . --tag fulfillorderack:${BUILD_NUMBER}'
+                                                def customImage = docker.build("fulfillorderack:${BUILD_NUMBER}")
+                                                //sh 'docker build . --tag fulfillorderack:${BUILD_NUMBER}'
                                     }
                         }
             }
