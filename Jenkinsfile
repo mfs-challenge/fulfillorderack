@@ -13,7 +13,11 @@ pipeline {
                         }
                         stage ('build')
                         {
-                                    sh 'docker build . --tag fulfillorderack:${BUILD_NUMBER}'
+                                    agent { label 'master' }
+                                    steps
+                                    {
+                                                sh 'docker build . --tag fulfillorderack:${BUILD_NUMBER}'
+                                    }
                         }
             }
 }
