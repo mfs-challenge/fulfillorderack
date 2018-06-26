@@ -8,7 +8,7 @@ pipeline {
                                                 {
                                                 checkout([$class: 'GitSCM',
                                                 branches: [[name: "master"]], 
-                                                userRemoteConfigs: [[url: "https://github.com/mfs-challenge/rabbitmqlistenerack.git", credentialsId: '3f3274fa-9202-4f37-914f-91e9ae1bee06' ]]])
+                                                userRemoteConfigs: [[url: "https://github.com/mfs-challenge/fulfillorderack.git", credentialsId: '3f3274fa-9202-4f37-914f-91e9ae1bee06' ]]])
                                                 }
                         }
             }
