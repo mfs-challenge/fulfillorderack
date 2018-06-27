@@ -10,14 +10,12 @@ RUN go get -d github.com/Microsoft/ApplicationInsights-Go/appinsights
 RUN go get -u -v gopkg.in/mgo.v2
 RUN go get gopkg.in/matryer/try.v1
 
-# Copy the application files
-COPY . .
-
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o fulfillorderack .
 
 WORKDIR /root/
-COPY /go/src/fulfillorderack .
+# Copy the application files
+COPY . .
 
 # Define environment variables
 # Application Insights
