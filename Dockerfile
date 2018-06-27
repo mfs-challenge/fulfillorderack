@@ -1,5 +1,5 @@
 ## Build stage
-FROM golang:1.9.4
+FROM golang:1.9.4 as builder
 
 # Set the working directory to the app directory
 WORKDIR /go/src/fulfillorderack
