@@ -13,7 +13,7 @@ RUN go get gopkg.in/matryer/try.v1
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o fulfillorderack .
 
-WORKDIR /root/
+WORKDIR /go/src/fulfillorderack
 # Copy the application files
 COPY . .
 
