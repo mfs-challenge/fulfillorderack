@@ -1,6 +1,5 @@
 ## Build stage
-FROM golang:1.9.4 as builder
-
+FROM golang:1.9.4 
 # Set the working directory to the app directory
 WORKDIR /go/src/fulfillorderack
 
@@ -17,11 +16,8 @@ COPY . .
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o fulfillorderack .
 
-## App stage
-FROM alpine:latest  
-RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY --from=builder /go/src/fulfillorderack .
+COPY /go/src/fulfillorderack .
 
 # Define environment variables
 # Application Insights
